@@ -1,0 +1,16 @@
+run = "npm run dev"
+entrypoint = "index.js"
+hidden = [".config", "pnpm-lock.json", ".next"]
+modules = ["nodejs-22"]
+
+[nix]
+channel = "stable-24_11"
+
+[deployment]
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
